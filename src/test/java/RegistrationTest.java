@@ -1,5 +1,5 @@
-import io.qameta.allure.Epic;
 import io.qameta.allure.Step;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,13 +14,13 @@ public class RegistrationTest extends TestBase {
     @Before
     public void init() {
         initDriver();
-        mainPage = new MainPage(driver);
-        loginPage = new LoginPage(driver);
-        registrationPage = new RegistrationPage(driver);
+        mainPage = new MainPage(DRIVER);
+        loginPage = new LoginPage(DRIVER);
+        registrationPage = new RegistrationPage(DRIVER);
     }
 
     @Test
-    @Step("Успешная регистрация")
+    @DisplayName("Успешная регистрация")
     public void shouldCreateAccount() {
         mainPage.clickByLoginAnchor();
         loginPage.clickOnRegistrationLink();
@@ -29,7 +29,7 @@ public class RegistrationTest extends TestBase {
     }
 
     @Test
-    @Step("Получение ошибки для некорректного пароля")
+    @DisplayName("Получение ошибки для некорректного пароля")
     public void shouldReturnWrongPasswordMessage() {
         mainPage.clickByLoginAnchor();
         loginPage.clickOnRegistrationLink();

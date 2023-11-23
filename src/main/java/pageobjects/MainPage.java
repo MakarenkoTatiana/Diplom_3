@@ -19,9 +19,6 @@ public class MainPage {
     private By fillingSpan= By.xpath(String.format(".//span[@class='text text_type_main-default' and text()='%s']", Constants.FILLING));
     private By selectedSpan = By.xpath(".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span[@class='text text_type_main-default']");
 
-
-    public MainPage() {}
-
     public MainPage(WebDriver driver) {
         this.driver = driver;
     }

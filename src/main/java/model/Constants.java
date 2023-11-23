@@ -8,8 +8,4 @@ public class Constants {
     public static final String BUNS = "Булки";
     public static final String SOUCE = "Соусы";
     public static final String FILLING = "Начинки";
-
-    private Constants() {
-        // constants class
-    }
 }

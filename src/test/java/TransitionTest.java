@@ -1,6 +1,6 @@
 import com.fasterxml.jackson.core.JsonProcessingException;
-import io.qameta.allure.Epic;
 import io.qameta.allure.Step;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,20 +15,20 @@ public class TransitionTest extends TestBase {
     @Before
     public void init() throws JsonProcessingException {
         super.init();
-        mainPage = new MainPage(driver);
-        loginPage = new LoginPage(driver);
-        accountPage = new AccountPage(driver);
+        mainPage = new MainPage(DRIVER);
+        loginPage = new LoginPage(DRIVER);
+        accountPage = new AccountPage(DRIVER);
     }
 
     @Test
-    @Step("Переход на страницу логина")
+    @DisplayName("Переход на страницу логина")
     public void shouldTransitionToLoginPage() {
         mainPage.clickByLoginAnchor();
         Assert.assertTrue(loginPage.isLoginButtonVisible());
     }
 
     @Test
-    @Step("Переход в профиль пользователя")
+    @DisplayName("Переход в профиль пользователя")
     public void shouldTransitionToProfilePage() {
         mainPage.clickByLoginAnchor();
         loginPage.login(Constants.EMAIL, Constants.PASSWORD);
@@ -37,7 +37,7 @@ public class TransitionTest extends TestBase {
     }
 
     @Test
-    @Step("Переход по клику на 'Конструктор'")
+    @DisplayName("Переход по клику на 'Конструктор'")
     public void shouldTransitionToConstructor() {
         mainPage.clickByLoginAnchor();
         loginPage.clickByConstructorAnchor();
@@ -45,7 +45,7 @@ public class TransitionTest extends TestBase {
     }
 
     @Test
-    @Step("Переход на главную страницу")
+    @DisplayName("Переход на главную страницу")
     public void shouldTransitionToMainPage() {
         mainPage.clickByLoginAnchor();
         loginPage.clickByMainAnchor();
